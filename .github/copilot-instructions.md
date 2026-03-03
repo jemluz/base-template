@@ -1,140 +1,95 @@
-# Copilot Instructions – Project Template
+# GitHub Copilot Instructions - [PROJECT_NAME]
 
-## Purpose of This Repository
+## Project Context
 
-This repository is a **template for documentation and project standards**, intended to be used **before defining a technology stack**.
+- [Short description of the project purpose]
+- [Primary audience or users]
+- [Current maturity stage: template / MVP / production]
 
-Its goal is to:
+## 🏗️ Tech Stack
 
-- Clarify vision, principles, and intent
-- Define architectural thinking independent of tools
-- Establish writing, structure, and collaboration standards
-- Serve as a shared cognitive baseline for humans and AI agents
+- **Status**: [Defined | Not defined]
+- **Frontend**: [Framework/library or N/A]
+- **Backend**: [Framework/runtime or N/A]
+- **Language(s)**: [Primary language(s)]
+- **Styling/UI**: [Approach or N/A]
+- **Data layer**: [Database/ORM or N/A]
+- **Rule**: Document decisions before introducing new dependencies.
 
-All technical choices are intentionally deferred.
+## 📁 Project Structure
 
----
+### Main Folders
 
-## Architecture Overview (Agnostic)
+- `docs/` - [Vision, architecture, process, and guidelines]
+- `.github/` - [Collaboration standards, templates, and AI instructions]
+- `src/` - [Application source code, if applicable]
+- `config-files/` - [Reference setup/configuration files]
+- `README.md` - [Project overview and entry point]
 
-This project is structured around **conceptual layers**, not implementation details.
+### Files Naming Convention
 
-### Conceptual Layers
+| Type           | Convention | Examples                              |
+| -------------- | ---------- | ------------------------------------- |
+| Document files | kebab-case | `ui-guidelines.md`, `dev-workflow.md` |
 
-- **Vision & Intent**  
-  Why the project exists, what problem it addresses, and what values guide decisions.
-- **Domain & Content**  
-  Core concepts, rules, language, and mental models that are independent of technology.
-- **Structure & Flow**  
-  How information, features, or experiences are organized and related.
-- **Interaction (Optional / Future)**  
-  Any form of user, system, or collaborator interaction, if applicable.
+## 💻 Code Standards
 
-These layers should remain valid regardless of framework, language, or platform.
+**Types/Functions/Constants Naming Convention**
 
----
+| Type                | Convention                                            | Examples                                         |
+| ------------------- | ----------------------------------------------------- | ------------------------------------------------ |
+| Functions/variables | camelCase                                             | `getProjectContext`, `handleSubmit`, `isEnabled` |
+| Constants           | SCREAMING_SNAKE_CASE                                  | `DEFAULT_LOCALE`, `MAX_SECTION_COUNT`            |
+| Types/Interfaces    | PascalCase                                            | `ProjectVision`, `ArchitectureLayer`             |
+| Enums               | PascalCase (name), SCREAMING_SNAKE_CASE (keys/values) | `enum DecisionState { DRAFT = "DRAFT" }`         |
 
-## Repository Structure
+## 🥸 Important Decisions
 
-This repository prioritizes **documentation-first design**.
+- [Decision 1: Core architecture approach]
+- [Decision 2: Documentation requirements]
+- [Decision 3: Dependency management rule]
+- [Decision 4: Source of truth in case of conflict]
 
-- `docs/`  
-  Contains markdown files describing:
+## 🧭 Instructions Map (Single Source of Truth)
 
-  - Vision
-  - Architecture (conceptual, not technical)
-  - UI / UX principles
-  - Writing and naming conventions
-  - Decision records (if applicable)
+Use this map to find authoritative rules. Avoid duplicating detailed rules in this file.
 
-- `.github/`  
-  Defines collaboration standards:
+| Topic                   | Source                  | When to consult                                          |
+| ----------------------- | ----------------------- | -------------------------------------------------------- |
+| Project overview        | `README.md`             | When understanding purpose, scope, and direction         |
+| Vision and principles   | `docs/vision.md`        | Before proposing changes to project direction            |
+| Conceptual architecture | `docs/architecture.md`  | When structuring layers and responsibilities             |
+| Workflow guidelines     | `docs/dev-workflow.md`  | Before defining contribution and collaboration flow      |
+| Experience guidelines   | `docs/ui-guidelines.md` | When defining UX/UI behavior at a conceptual level       |
+| Future directions       | `docs/future.md`        | When evaluating ideas that should not be implemented yet |
 
-  - Copilot / agent instructions
-  - Issue templates
-  - Pull request templates
-  - Contribution guidelines
+Maintenance rule:
 
-- Root configuration files  
-  General formatting and hygiene rules (editor, ignores), intentionally minimal and stack-agnostic.
+- If a rule changes, update the corresponding canonical document.
+- Keep this map concise and avoid duplicating detailed content.
 
-No source code structure is assumed.
+## 💪 Skills
 
----
+Skills are modular, context-specific knowledge modules that guide AI assistants on how to perform common tasks following project conventions.
 
-## Developer & Contributor Workflow (Conceptual)
+Available skills:
 
-- Read documentation **before** proposing solutions
-- Treat documentation as a **first-class artifact**
-- Prefer clarifying intent over implementing features
-- Update documentation when assumptions change
-- Avoid premature technical decisions
+| Skill          | Description                                 | Path                                     |
+| -------------- | ------------------------------------------- | ---------------------------------------- |
+| [skill-name-1] | [Short description of what this skill does] | `.github/skills/[skill-name-1]/SKILL.md` |
+| [skill-name-2] | [Short description of what this skill does] | `.github/skills/[skill-name-2]/SKILL.md` |
 
-This repository may later be extended with:
+<!-- The XML structure below is automatically processed for tool integration. Keep it in sync with the table above. -->
 
-- A chosen stack
-- Build or execution scripts
-- Runtime configuration
-
-Until then, all contributions should remain tool-independent.
-
----
-
-## Conventions and Patterns
-
-### Documentation
-
-- Use clear, concise language
-- Prefer simple sentences and explicit reasoning
-- Avoid unnecessary jargon
-- Explain _why_ before _how_
-
-### Naming
-
-- Names should reflect meaning, not implementation
-- Favor conceptual clarity over technical precision
-- Be consistent across documents
-
-### Tone
-
-- Clear and direct
-- Reflective and intentional
-- Accessible to both technical and non-technical readers
-- Avoid intimidation or excessive formalism
-
----
-
-## UI / Experience Principles (Abstract)
-
-When applicable, interfaces or experiences should favor:
-
-- Clarity over cleverness
-- Simplicity over density
-- Reading and understanding over decoration
-- Purposeful constraints
-
-Specific visual systems or libraries should be defined later, in context.
-
----
-
-## Integration Points (Deferred)
-
-- No frameworks, languages, or platforms are assumed
-- No external services or APIs are defined
-- No runtime behavior is specified
-
-All integration decisions are intentionally postponed until:
-
-- The problem space is well understood
-- The documentation is stable
-- The conceptual architecture is validated
-
----
-
-## Source of Truth
-
-- `README.md` → High-level overview
-- `docs/` → Vision, principles, architecture, guidelines
-- `.github/` → Collaboration and contribution standards
-
-If documentation and implementation ever diverge, **documentation takes precedence**.
+<skills>
+  <skill>
+    <name>[skill-name-1]</name>
+    <description>[Short description of what this skill does.]</description>
+    <file>/workspaces/base-template/.github/skills/[skill-name-1]/SKILL.md</file>
+  </skill>
+  <skill>
+    <name>[skill-name-2]</name>
+    <description>[Short description of what this skill does.]</description>
+    <file>/workspaces/base-template/.github/skills/[skill-name-2]/SKILL.md</file>
+  </skill>
+</skills>

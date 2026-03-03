@@ -14,7 +14,7 @@ The template-files folder must die when you finished your environment preparatio
 
 English slogan [EN]
 
-turma.dev is a portfolio storytelling platform where developers can present their professional journey through a timeline of milestones, projects, and personal links in a content-centered experience.
+[Project short description here]
 
 ### 🌐 Online preview [your project link](https://google,com)
 

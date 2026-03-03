@@ -76,20 +76,14 @@ Available skills:
 
 | Skill          | Description                                 | Path                                     |
 | -------------- | ------------------------------------------- | ---------------------------------------- |
-| [skill-name-1] | [Short description of what this skill does] | `.github/skills/[skill-name-1]/SKILL.md` |
-| [skill-name-2] | [Short description of what this skill does] | `.github/skills/[skill-name-2]/SKILL.md` |
+| add-mock-skill | Creates and documents a mock skill following the project standard. | `.github/skills/add-mock-skill/SKILL.md` |
 
 <!-- The XML structure below is automatically processed for tool integration. Keep it in sync with the table above. -->
 
 <skills>
   <skill>
-    <name>[skill-name-1]</name>
-    <description>[Short description of what this skill does.]</description>
-    <file>/workspaces/base-template/.github/skills/[skill-name-1]/SKILL.md</file>
-  </skill>
-  <skill>
-    <name>[skill-name-2]</name>
-    <description>[Short description of what this skill does.]</description>
-    <file>/workspaces/base-template/.github/skills/[skill-name-2]/SKILL.md</file>
+    <name>add-mock-skill</name>
+    <description>Creates and documents a mock skill following the project standard.</description>
+    <file>/workspaces/base-template/.github/skills/add-mock-skill/SKILL.md</file>
   </skill>
 </skills>

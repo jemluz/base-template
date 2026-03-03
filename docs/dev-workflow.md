@@ -1,26 +1,125 @@
-## Setup
+# Dev Workflow
 
-- run `nvm install` to get the npm version defined by `.nvmrc`
-- run `nvm alias default lts/{version_name}` if you want to set that npm version as default
+This document describes the development workflow for the project, including naming conventions, versioning, and continuous integration patterns. The goal is to ensure continuous delivery of small, well-tracked, and organized changes.
 
-### Code Formatting
+## 🛠️ Setup
+
+For details on how to set up the project, see [Project Setup](./project-setup.md).
+
+## 🧩 GitHub Templates
+
+Use the repository templates when opening issues and pull requests:
+
+- Pull Request template: [../.github/pull_request_template.md](../.github/pull_request_template.md)
+- Issue templates: [../.github/ISSUE_TEMPLATE/](../.github/ISSUE_TEMPLATE/)
+
+## 🎨 Code Formatting
 
 - There is an `.editorconfig` file to set what is expected as code formatting standards
+- ESLint is configured to check code quality and style issues. Use `npm run lint` to check for issues
 - Prettier was installed here so you can use the scripts `npm run lint:check` and `npm run lint:fix` to solve formatting issues
 
-### Working with issues + branchs
+## ✅ Task tracking and continuous delivery
 
-1. First create a issue
-2. Set the issue title rightly, use the pattern `[TMPLT-XXXXX] + issue_title`
-3. Use the generated issue number (#X...) to fill the `XXXXX` part
+The main goal with this workflow is to deliver small and continuous changes, so if an issue is getting a large scope, sub-issues must be created to keep the delivery process small and continuous.
 
-   3.1 As example: if the issue is `#86` the code will be `TMPLT-00086`
+Also, it is important to be able to track any [pull requests - commit - branch - sub-issue - issue - milestone - release] relations. To allow that, follow the patterns below.
 
-   3.2 As another: if is `#3` will be `TMPLT-00003`
+### 🚀 Release
 
-4. Follow the pattern `feat/TMPLT-XXXXX` to create branchs based on the issue that was opened
+A release is a functional version with new features/fixes, usually nesting one or more milestones inside itself.
 
-### Issue + Branch Example
+### 🎯 Milestone
 
-This [issue #1](https://github.com/jemluz/turma.dev/issues/1) is linked with [feat/TURMA-00001](https://github.com/jemluz/turma.dev/tree/feat%2FTURMA-00001) branch
-<img width="1254" height="807" alt="image" src="https://github.com/user-attachments/assets/eb301820-9742-416d-8656-16cfc5f580fd" />
+A milestone is a package of one or more related issues that usually define important achievements for the project.
+
+### 📌 (Main/Parent) Issues
+
+An issue is a key point to be done within a milestone. It could have sub-issues or not.
+Every issue starts by creating a new branch from the dev branch, and when done, ends with a Pull Request from that issue branch pointing back to dev branch.
+The PR merge type must be squash.
+
+**Creating/naming an issue**
+
+1. Before starting any work, you should create an issue, which will generate the issue number.
+2. Set the issue title correctly, using the pattern `[CODE-XXXXX] + issue_title`. The generated issue number (#X...) should fill the `XXXXX` part.
+
+- As example: if the issue is `#86` the code will be `[CODE-00086]`
+- As another: if is `#3` the code will be `[CODE-00003]`
+
+<img src="./imgs/issue-naming.png" alt="issue naming image example" width="800">
+
+**Creating/naming a (main/parent) issue branch:**
+
+3. Follow the pattern `feat/CODE-XXXXX` to create branches based on the issue that was opened
+
+<img src="./imgs/issue-branch-naming.png" alt="issue branch naming image example" width="800">
+
+**Commits at (main/parent) issue branches:**
+
+4. Commits in the issue branch should follow the [Semantic Commit Messages](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716) pattern.
+
+- Use this format directly: `type(IXXXXX): commit message description whatever`
+- Or if there is a PR from some sub-issue, set the squash merge title to `[CODE-XXXXX] + [SUB-YY] + title (PR #ZZ)` (#ZZ is PR number)
+- See more details in the PRs section
+
+### 📍 Sub-issues
+
+**Creating/naming a sub-issue**
+
+5. If the issue is too big, you should create sub-issues to divide the work into small parts. Each sub-issue will generate its own number too.
+6. Set the sub-issue title correctly, using the pattern `[CODE-XXXXX] + [SUB-YY] + title`. The generated sub-issue number (#Y...) should fill the `YY` part.
+
+- As example: if the issue is `#86` and sub-issue is `#89`, the code will be `[CODE-00086][SUB-89]`
+- As another: if the issue is `#3` and sub-issue is `#4`, the code will be `[CODE-00003][SUB-4]`
+
+<img src="./imgs/sub-issue-naming.png" alt="sub issue naming image example" width="800">
+
+**Creating/naming a sub-issue branch:**
+
+7. Follow the pattern `feat/CODE-XXXXX__SUB-YY` to create branches based on the sub-issue that was opened
+
+<img src="./imgs/sub-issue-branch-naming.png" alt="sub issue branch naming image example" width="800">
+
+**Commits at sub-issue branches:**
+
+8. Commits in the sub-issue branch should follow the [Semantic Commit Messages](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716) pattern.
+
+- Use this format: `type(IXXXXX_SYY): commit message description` without zeros to fill.
+- Example: `feat(I65_S71): add icons to documentation headings`
+- When the sub-issue is completed, the PR will be merged into the parent issue branch
+
+### 🔀 Pull Request (PR)
+
+Every PR marks the end of an issue or sub-issue.
+The PR should be referenced in its corresponding issue/sub-issue.
+
+<img src="./imgs/issue-pr-reference.png" alt="pull request issue reference example" width="800">
+
+**Which branch to point:**
+
+- Issue branches should point to the dev branch.
+- Sub-issue branches should point to their parent issue branch.
+
+<img src="./imgs/pull-request-pointing.png" alt="pull request pointing example" width="800">
+
+**PR merge type:**
+
+All PRs should use the squash merge type. Avoid other types.
+
+**PR merge commit title and description:**
+
+- IF is a PR `from issue` branch `to dev branch`:
+  - The title must be: `[CODE-XXXXX] + title (PR #ZZ)` (#ZZ is PR number)
+  - The description should start with `more details at #XX`, followed by previous branch's commit messages (no need to edit)
+
+- IF is a PR `from sub-issue` branch `to parent issue` branch:
+  - The title must be: `[CODE-XXXXX][SUB-YY] + title (PR #ZZ)` (#ZZ is PR number)
+  - The description should start with `more details at #XX`, followed by previous branch's commit messages (no need to edit)
+
+### 📋 Summary
+
+| Type           | Title                          | Branch Naming             | Commit Format                      |
+| -------------- | ------------------------------ | ------------------------- | ---------------------------------- |
+| **Issues**     | `[CODE-XXXXX] + title`         | `feat/CODE-XXXXX`         | `type(IXXXXX): commit message`     |
+| **Sub-issues** | `[CODE-XXXXX][SUB-YY] + title` | `feat/CODE-XXXXX__SUB-YY` | `type(IXXXXX_SYY): commit message` |

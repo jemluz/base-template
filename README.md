@@ -8,27 +8,73 @@ The `config-files` folder only will work if you move them to root folder. They a
 
 The template-files folder must die when you finished your environment preparation.
 
-# To understand the project
+# Project Name!!
 
-Read `docs/` files.
+### Brasilian Slogan 🇧🇷
 
-## docs folder
+English slogan [EN]
 
-The `docs/` folder explains the project's vision, architecture, conventions, and processes. Prefer concise pages that explain _why_ as well as _how_, and update documentation alongside code changes to keep it accurate and useful.
+turma.dev is a portfolio storytelling platform where developers can present their professional journey through a timeline of milestones, projects, and personal links in a content-centered experience.
 
-- Project purpose and scope (vision, goals, and audience).
-- Architecture and domain concepts (high-level, stack-agnostic descriptions).
-- Contributor and development guides (workflow, branching, PR requirements, code style).
-- Decision records and RFCs (design trade-offs and rationale).
-- UX/UI principles, API contracts, example usage, and how-to guides.
+### 🌐 Online preview [your project link](https://google,com)
 
-# To work in
+### 🖼️ Spoilers
 
-Focus on: `docs/dev-workflow.md` to understand the dev workflow
+Attach some prints of your app
 
-## .github folder
+| 🖥️ Desktop                                                                                                                      | 📱 Mobile                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| <img src="docs/imgs/print%20desktop.png" alt="turma.dev desktop preview" height="420" style="width:auto;object-fit:contain;" /> | <img src="docs/imgs/print%20mobile.png" alt="turma.dev mobile preview" height="420" style="width:auto;object-fit:contain;" /> |
+
+## ✨ Key Features
+
+- [List of key features here]
+
+## 📚 Tech Stack
+
+| Layer          | Technology                                                                                   |
+| -------------- | -------------------------------------------------------------------------------------------- |
+| Framework      | [Framework Name + Version](https://example.com/framework)                                    |
+| UI Library     | [UI Library Name + Version](https://example.com/ui-library)                                  |
+| Language       | [Primary Language + Version](https://example.com/language)                                   |
+| Styling        | [Styling Solution](https://example.com/styling)                                              |
+| Component Kit  | [Component Kit / Design System](https://example.com/components)                              |
+| Icons          | [Icon Library 1](https://example.com/icons-1), [Icon Library 2](https://example.com/icons-2) |
+| Linting/Format | [Linter](https://example.com/linter), [Formatter](https://example.com/formatter)             |
+
+## 🚀 Start Here
+
+1. Local setup: [docs/project-setup.md](docs/project-setup.md)
+2. Product vision: [docs/vision.md](docs/vision.md)
+3. Architecture: [docs/architecture.md](docs/architecture.md)
+4. Folder structure: [docs/folder-structure.md](docs/folder-structure.md)
+5. Development workflow: [docs/dev-workflow.md](docs/dev-workflow.md)
+
+## 🗺️ Documentation Quick Map
+
+### 🎯 Product and Direction
+
+- Vision and purpose: [docs/vision.md](docs/vision.md)
+- Evolution and scope boundaries: [docs/future.md](docs/future.md)
+
+### 🏗️ Engineering and Architecture
+
+- Architecture and invariants: [docs/architecture.md](docs/architecture.md)
+- Current data model (ERD): [docs/data-model.md](docs/data-model.md)
+- Code organization: [docs/folder-structure.md](docs/folder-structure.md)
+- State management: [docs/state-management.md](docs/state-management.md)
+- UI/UX guidelines: [docs/ui-guidelines.md](docs/ui-guidelines.md)
+
+### 🔁 Development Process
+
+- Workflow for issues, sub-issues, and PRs: [docs/dev-workflow.md](docs/dev-workflow.md)
+- Project setup and scripts: [docs/project-setup.md](docs/project-setup.md)
+
+## ⚙️ Operational Rules in `.github/`
 
 The `.github` folder stores GitHub-specific configuration and workflow files that help standardize repository collaboration and automation. Common contents include:
 
+- Source of truth for project standards and AI instructions: [.github/copilot-instructions.md](.github/copilot-instructions.md)
+- Topic-specific rules: [.github/instructions/](.github/instructions/)
+- Reusable skills for recurring tasks: [.github/skills/](.github/skills/)
 - `ISSUE_TEMPLATE/` and `pull_request_template.md` to guide contributors when opening issues or PRs.
-- `copilot-instructions.md` to give context to copilot agent.
